@@ -279,17 +279,19 @@ while ($true) {
     Write-Host "  1. Install or Re-install Automation"
     Write-Host "  2. Edit Saved ZeroTier Network ID"
     Write-Host "  3. Uninstall All Automation Components"
-    Write-Host "  4. Exit"
+    Write-Host "  4. Open GitHub Repository"
+    Write-Host "  5. Exit"
     Write-Host
 
-    $choice = Read-Host "Enter your choice [1-4]"
+    $choice = Read-Host "Enter your choice [1-5]"
 
     try {
         switch ($choice) {
             "1" { Start-Installation }
             "2" { Edit-Config }
             "3" { Start-Uninstallation }
-            "4" { 
+            "4" { Start-Process "https://github.com/Evanlau1798/Roon-ZeroTier-Remote-Access" }
+            "5" { 
                 Write-Host "Exiting."
                 exit 
             }
