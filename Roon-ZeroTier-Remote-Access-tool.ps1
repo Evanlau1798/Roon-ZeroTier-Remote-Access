@@ -8,11 +8,21 @@
 # --- SCRIPT START ---
 
 # 1. AUTOMATIC ADMINISTRATOR ELEVATION
+$scriptUrl = "https://roon.evanlau1798.com" # The URL for this script itself
+
 if (-Not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Clear-Host
     Write-Warning "Administrator privileges are required."
-    Write-Host "Requesting elevation..."
-    Start-Process powershell.exe -Verb RunAs -ArgumentList ("-NoProfile -ExecutionPolicy Bypass -File `"{0}`"" -f $MyInvocation.MyCommand.Path)
+    Write-Host "Requesting elevation to re-run the script from its source..."
+    
+    # Define the command to be run in the new admin window. It will re-download and execute this script.
+    $command = "Invoke-Expression (Invoke-RestMethod -Uri $scriptUrl)"
+    
+    # PowerShell's -EncodedCommand argument requires the command to be in UTF-16LE, then Base64 encoded.
+    $encodedCommand = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($command))
+    
+    # Start the new process with the encoded command and then exit the current non-admin process.
+    Start-Process powershell.exe -Verb RunAs -ArgumentList "-NoExit", "-NoProfile", "-EncodedCommand", $encodedCommand
     exit
 }
 
