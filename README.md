@@ -2,6 +2,8 @@
 
 [![PowerShell](https://img.shields.io/badge/PowerShell-5.1+-blue.svg)](https://docs.microsoft.com/en-us/powershell/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Status](https://img.shields.io/badge/status-working-brightgreen)](https://github.com/evanlau1798/Roon-ZeroTier-Remote-Access)
 
+[English](README.md) | [中文](zh/README.md)
+
 A powerful, menu-driven PowerShell script to automate the remote access setup for Roon Server on Windows using ZeroTier.
 
 This tool solves the common problem where Roon clients on an external network cannot discover the Roon Server because the ZeroTier virtual network adapter is treated as a "Public" network by Windows. The script provides a secure, persistent, and user-friendly way to manage this automation.
@@ -10,13 +12,15 @@ This tool solves the common problem where Roon clients on an external network ca
 
 ### Features
 
-* **One-Liner Execution**: Simple, no-fuss execution directly in PowerShell.
-* **Menu-Driven Interface**: An easy-to-use menu to install, edit, and uninstall the automation.
-* **Network ID Specific**: The script targets a *specific* ZeroTier Network ID, ensuring other ZeroTier connections remain secure and untouched.
-* **Intelligent Network Detection**: Automatically detects active ZeroTier networks to make selection easy and error-free.
-* **Color-Coded Display**: Active networks are displayed with colors for names and IDs for enhanced readability.
-* **Input Validation**: Includes checks and confirmation prompts to prevent errors from invalid input.
-* **Full Uninstall**: A dedicated menu option to completely remove the scheduled task and all related configuration files.
+*   **One-Liner Execution**: Simple, no-fuss execution directly in PowerShell.
+*   **Multi-language Support**: Automatically detects your system language (supports English and Traditional Chinese).
+*   **Menu-Driven Interface**: An easy-to-use menu to install, edit, and uninstall the automation.
+*   **Network ID Specific**: The script targets a *specific* ZeroTier Network ID, ensuring other ZeroTier connections remain secure and untouched.
+*   **Intelligent Network Detection**: Automatically detects active ZeroTier networks to make selection easy and error-free. Improved parsing logic supports various ZeroTier CLI output formats.
+*   **Immediate Application**: Fixes are applied immediately after installation or configuration changes, without needing a restart.
+*   **Color-Coded Display**: Active networks are displayed with colors for names and IDs for enhanced readability.
+*   **Input Validation**: Includes checks and confirmation prompts to prevent errors from invalid input.
+*   **Full Uninstall**: A dedicated menu option to completely remove the scheduled task and all related configuration files.
 
 ---
 
